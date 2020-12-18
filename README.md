@@ -2,9 +2,21 @@
 #### This tool has been created by Quessts and ANG in order to show the exploit found in Snapchat that can be abused to get a really high snapscore. This is for educational purposes only.
 #### The developers are NOT responsible for what you do with this tool.
 
+
+# Install
+
+#### For Windows click [here](https://github.com/Quessts/Snapify/tree/Release)
+
+#### For Linux and Mac download the zip file and then run the following commands in terminal:
+```
+pip install -r requirements.txt
+```
+```
+python3 main.py
+```
+#### You will also need Vysor for Linux and Mac click [here](https://www.vysor.io/download/) to download it.
 # How to use
-#### First dowload the latest release from [here](https://github.com/Quessts/Snapify/tree/Release)
-#### Once you open Snapify.exe you should see this:
+#### Once you launch Snapify you should see this:
 ![alt text](https://i.stack.imgur.com/ef82Z.png)
 
 #### If this is your first time running it select module one. This will add 200 people to your friends list. 
