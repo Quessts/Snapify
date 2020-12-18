@@ -29,37 +29,38 @@ def add():
 
     print(Style.BRIGHT + Fore.LIGHTRED_EX + "Retrieved names from names.txt\n")
 
-    anchorNames = ["Add Friend", "Close", "Add Friend Search Bar",
-                   "Clear Friend Bar", "First Add Button"]
-    anchors = []
-
-    anchorsFulfilled = 0
-    anchorsRequired = len(anchorNames)
-
-    print(":: Click enter when your mouse is over '{0}' ::".format(
-        anchorNames[anchorsFulfilled]))
-
-    while anchorsFulfilled != anchorsRequired:
+    print(Style.BRIGHT + Fore.LIGHTRED_EX +
+          ":: Click enter when your mouse is over the 'Add Friend Button' ::")
+    if keyboard.read_key() == "enter":
+        addFriend = pag.position()
+        print(f"Cords captured: {addFriend}")
+    time.sleep(1)
+    print(":: Click enter when your mouse is over the 'Close Button' ::")
+    if keyboard.read_key() == "enter":
+        close = pag.position()
+        print(f"Cords captured: {close}")
+    time.sleep(1)
+    print(":: Click enter when your mouse is over the 'Find Friend Search Bar' ::")
+    if keyboard.read_key() == "enter":
+        searchBar = pag.position()
+        print(f"Cords captured: {searchBar}")
+    time.sleep(1)
+    print(":: Click enter when your mouse is over the 'Clear Friend Bar' ::")
+    if keyboard.read_key() == "enter":
+        clearText = pag.position()
+        print(f"Cords captured: {clearText}")
+    time.sleep(1)
+    print(":: Click enter when your mouse is over the 'First Add Button' ::")
+    while True:
         if keyboard.read_key() == "enter":
-            mousePositionNow = pag.position()
-            anchors.append(mousePositionNow)
-            print("Successfully captured mouse coordinates.\n")
-            anchorsFulfilled += 1
-            if anchorsFulfilled == anchorsRequired:
-                break
-            print(":: Click enter when your mouse is over '{0}' ::".format(
-                anchorNames[anchorsFulfilled]))
-            time.sleep(1)
-
-    print("Cords captured: {0}".format(anchors))
-
-    def dragDown(px, time=0.5):
-        now = pag.position()
-        pag.dragTo(now[0], now[1]+px, time, button='left')
+            firstAdd = pag.position()
+            print(f"Cords captured: {firstAdd}")
+            break
+        else:
+            continue
+    clear()
 
     def adder(name):
-        global anchors
-        addFriend, close, searchBar, clearText, firstAdd = anchors
 
         # move to search bar
         pag.moveTo(searchBar[0], searchBar[1], 0.5)
@@ -91,12 +92,8 @@ def add():
         pag.click()
         time.sleep(2)
 
-        #
-        # Dragging down, to remove
-        dragDown(500)
-
-        # move back to the add area
-        pag.moveTo(addFriend[0], addFriend[1], 0.5)
+        # clears search bar
+        pag.moveTo(clearText[0], clearText[1], 0.5)
         pag.click()
 
     print("will cycle through your name list randomly\n\n")
@@ -150,7 +147,7 @@ def sendsnap():
     clear()
     print(
         f"Started boosting! Please don't turn off your phone or close this window while it's running. This will run for {amount} cycle('s)")
-
+    print('\n\n\n\n\n\n')
     while amount > 0:
         # move to camera button and record for one minute
         pag.moveTo(CameraButton[0], CameraButton[1], 0.5)
@@ -178,14 +175,13 @@ def sendsnap():
         pag.moveTo(CameraLogo[0], CameraLogo[1], 0.5)
         pag.click()
 
-        print('\n\n\n\n\n\n')
-        print(f'Finished one cycle. {amount} left to go.')
         amount -= 1
+        print(f'Finished one cycle. {amount} left to go.')
     clear()
     print(Fore.GREEN + 'Finished Boosting. Thanks for using our tool.')
     print(Fore.MAGENTA + '\n\nPlease check us out at:\n\nQuessts: https://cracked.to/Quessts\nANG: https://cracked.to/ANG', end='')
     getpass(Fore.WHITE + '')
-    exit()
+    sys.exit()
 
 
 clear()
@@ -215,7 +211,7 @@ while True:
 """)
 
     print(
-         'Select module:\n\n\n\n1) Add Friends\n\n2) Boost\n\n\n ')
+        'Select module:\n\n\n\n1) Add Friends\n\n2) Boost\n\n\n ')
     print(Fore.CYAN + 'Snapify> ', end='')
     option = input(Fore.WHITE + '')
 
@@ -234,7 +230,7 @@ while True:
                 sendsnap()
             elif watchvid == 'no':
                 clear()
-                webbrowser.open_new('##')
+                webbrowser.open_new('https://youtu.be/vp_jK4tBMVI')
                 sendsnap()
             else:
                 getpass(Style.BRIGHT + Fore.LIGHTRED_EX +
