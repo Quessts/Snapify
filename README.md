@@ -3,6 +3,8 @@
 #### The developers are NOT responsible for what you do with this tool.
 
 
+# Video Tutorial:
+#### Click [here](https://youtu.be/vp_jK4tBMVI)
 # Install
 
 #### For Windows click [here](https://github.com/Quessts/Snapify/releases/tag/Release)
