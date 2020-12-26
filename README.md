@@ -2,9 +2,12 @@
 #### This tool has been created by Quessts and ANG in order to show the exploit found in Snapchat that can be abused to get a really high snapscore. This is for educational purposes only.
 #### The developers are NOT responsible for what you do with this tool.
 
+# Support
+#### Click [here](http://discord.link/Snapify) to join our discord support server
 
 # Video Tutorial:
 #### Click [here](https://youtu.be/vp_jK4tBMVI)
+
 # Install
 
 #### For Windows click [here](https://github.com/Quessts/Snapify/releases/tag/Release)
