@@ -17,6 +17,9 @@
 git clone https://github.com/Quessts/Snapify
 ```
 ```
+cd Snapify
+```
+```
 pip install -r requirements.txt
 ```
 ```
