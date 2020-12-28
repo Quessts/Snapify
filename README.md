@@ -14,6 +14,9 @@
 
 #### For Linux and Mac download the zip file and then run the following commands in terminal:
 ```
+git clone https://github.com/Quessts/Snapify
+```
+```
 pip install -r requirements.txt
 ```
 ```
