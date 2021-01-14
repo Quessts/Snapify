@@ -9,6 +9,9 @@ import random
 import webbrowser
 from os import system, name
 from colorama import Fore, Back, Style
+import os
+
+os.system('cls')
 
 
 def clear():
@@ -111,18 +114,45 @@ def sendsnap():
     print(Fore.CYAN + '\n\n\n\n\nSnapify> ', end='')
     amount = float(input(Fore.WHITE + ''))
     clear()
+    while True:
+        print(Style.BRIGHT + Fore.LIGHTRED_EX +
+              'Would you like to mute your microphone?(Note: this will make the program slower)(Yes/No) ')
+        print(Fore.CYAN + '\n\n\n\n\nSnapify> ', end='')
+        mute = input(Fore.WHITE + '').lower()
+        clear()
+        if mute == 'yes':
+            break
+        elif mute == 'no':
+            break
+        else:
+            getpass(Style.BRIGHT + Fore.LIGHTRED_EX +
+                    'Error. You inserted an invalid option. Please try again.')
+            clear()
+            continue
     print(Style.BRIGHT + Fore.LIGHTRED_EX +
           ":: Click enter when your mouse is over the 'Camera Button' ::")
     if keyboard.read_key() == "enter":
         CameraButton = pag.position()
         print(f"Cords captured: {CameraButton}")
     time.sleep(1)
-    print(":: Take a picture then click enter when your mouse is over the 'Send To Button' ::")
-    if keyboard.read_key() == "enter":
-        SendToButton = pag.position()
-        print(f"Cords captured: {SendToButton}")
-    time.sleep(1)
-    print(":: Click on 'Send To Button' then click enter when your mouse is over the 'Last Snap Button' ::")
+    if mute == 'yes':
+        print(":: Take a 3 second video then click enter when your mouse is over the 'Mute Button' ::")
+        if keyboard.read_key() == "enter":
+            MuteButton = pag.position()
+            print(f"Cords captured: {MuteButton}")
+        time.sleep(1)
+        print(":: Click on the 'Mute Button' then click enter when your mouse is over the 'Send To Button' ::")
+        if keyboard.read_key() == "enter":
+            SendToButton = pag.position()
+            print(f"Cords captured: {SendToButton}")
+        time.sleep(1)
+    elif mute == 'no':
+        print(":: Take a picture then click enter when your mouse is over the 'Send To Button' ::")
+        if keyboard.read_key() == "enter":
+            SendToButton = pag.position()
+            print(f"Cords captured: {SendToButton}")
+        time.sleep(1)
+    print(":: Click on the 'Send To Button' then click enter when your mouse is over the 'Last Snap Button' ::")
     if keyboard.read_key() == "enter":
         LastSnapButton = pag.position()
         print(f"Cords captured: {LastSnapButton}")
@@ -150,29 +180,34 @@ def sendsnap():
     print('\n\n\n\n\n\n')
     while amount > 0:
         # move to camera button and record for one minute
-        pag.moveTo(CameraButton[0], CameraButton[1], 0.5)
+        pag.moveTo(CameraButton[0], CameraButton[1], 2)
         pag.mouseDown()
-        time.sleep(60)
+        time.sleep(63)
         pag.mouseUp()
 
+        # if mute click yes
+        if mute == 'yes':
+            pag.moveTo(MuteButton[0], MuteButton[1], 2)
+            pag.click()
+
         # move to send to button and click
-        pag.moveTo(SendToButton[0], SendToButton[1], 0.5)
+        pag.moveTo(SendToButton[0], SendToButton[1], 2)
         pag.click()
 
         # move to last snap and click
-        pag.moveTo(LastSnapButton[0], LastSnapButton[1], 0.5)
+        pag.moveTo(LastSnapButton[0], LastSnapButton[1], 2)
         pag.click()
 
         # move to send snap button and click
-        pag.moveTo(SendToButton[0], SendToButton[1], 0.5)
+        pag.moveTo(SendToButton[0], SendToButton[1], 2)
         pag.click()
 
         # move to send snap arrow and click
-        pag.moveTo(SendSnapArrow[0], SendSnapArrow[1], 0.5)
+        pag.moveTo(SendSnapArrow[0], SendSnapArrow[1], 2)
         pag.click()
 
         # move to camera logo and click
-        pag.moveTo(CameraLogo[0], CameraLogo[1], 0.5)
+        pag.moveTo(CameraLogo[0], CameraLogo[1], 2)
         pag.click()
 
         amount -= 1
@@ -184,40 +219,90 @@ def sendsnap():
     sys.exit()
 
 
-clear()
+def removefriends():
+    print(":: Head over to the recently added friends section then click enter when your mouse is over the first users 'icon' ::")
+    if keyboard.read_key() == "enter":
+        IconButton = pag.position()
+        print(f"Cords captured: {IconButton}")
+    time.sleep(1)
+    print(":: Click on the 'icon' then click enter when your mouse is over the '3 dots' on the top right corner ::")
+    if keyboard.read_key() == "enter":
+        ThreeDotsButton = pag.position()
+        print(f"Cords captured: {ThreeDotsButton}")
+    time.sleep(1)
+    print(":: Click on the '3 dots' then click enter when your mouse is over the 'remove friend' button ::")
+    if keyboard.read_key() == "enter":
+        RemoveFriendButton = pag.position()
+        print(f"Cords captured: {RemoveFriendButton}")
+    time.sleep(1)
+    clear()
+    # countdown screen
+    TimeToRecentlyAddedPage = 15
+    while TimeToRecentlyAddedPage >= 0:
+        clear()
+        print(
+            f'You have {TimeToRecentlyAddedPage} seconds to go back to the snapchat recently added menu before the bot starts.')
+        time.sleep(1)
+        TimeToRecentlyAddedPage -= 1
+    while True:
+        # move to icon button and click
+        pag.moveTo(IconButton[0], IconButton[1], 2)
+        pag.click()
+
+        # move to three dots button and click
+        pag.moveTo(ThreeDotsButton[0], ThreeDotsButton[1], 2)
+        pag.click()
+
+        # move to remove friend button and click
+        pag.moveTo(RemoveFriendButton[0], RemoveFriendButton[1], 2)
+        pag.click()
 
 
 while True:
     print(Style.BRIGHT + Fore.LIGHTRED_EX + """
 
-                                        
-    %(                              #%  
-    %###                          ###%  
+    %(                              #%
+    %###                          ###%
     %%%%#####  @@@/@@@/@@@, #####%##%       ███████╗███╗   ██╗ █████╗ ██████╗ ██╗███████╗██╗   ██╗
-     %&%%%#%&@              @&%%#%%&%       ██╔════╝████╗  ██║██╔══██╗██╔══██╗██║██╔════╝╚██╗ ██╔╝  
-        %&&%                 %%%&%          ███████╗██╔██╗ ██║███████║██████╔╝██║█████╗   ╚████╔╝ 
-          @@                  @%            ╚════██║██║╚██╗██║██╔══██║██╔═══╝ ██║██╔══╝    ╚██╔╝  
-          @@                  @&            ███████║██║ ╚████║██║  ██║██║     ██║██║        ██║   
-      *@/ @@                  @* @@         ╚══════╝╚═╝  ╚═══╝╚═╝  ╚═╝╚═╝     ╚═╝╚═╝        ╚═╝  
-     ,@@                         &@@    
-          /                   @@           #1 Free snapchat booster Developed by ANG#6166 and Quessts#2071
-         @@                    @%       
-       @@                       &@#         V1.0
-  %@@@*                            @@@@*
-  &@@@@(                          @@@@@ 
-       @@@@@@@             #@@@@@@@     
-               @@@#@@(##@@(   
-                           
-""")
+     %&%%%#%&@              @&%%#%%&%       ██╔════╝████╗  ██║██╔══██╗██╔══██╗██║██╔════╝╚██╗ ██╔╝
+        %&&%                 %%%&%          ███████╗██╔██╗ ██║███████║██████╔╝██║█████╗   ╚████╔╝
+          @@                  @%            ╚════██║██║╚██╗██║██╔══██║██╔═══╝ ██║██╔══╝    ╚██╔╝
+          @@                  @&            ███████║██║ ╚████║██║  ██║██║     ██║██║        ██║
+      *@/ @@                  @* @@         ╚══════╝╚═╝  ╚═══╝╚═╝  ╚═╝╚═╝     ╚═╝╚═╝        ╚═╝
+     ,@@                         &@@                                                            
+          /                   @@           #1 Free snapchat booster Developed by https://cracked.to/Quessts 
+         @@                    @%          and partially by https://cracked.to/ANG
+       @@                       &@#        
+  %@@@*                            @@@@*   V1.5 | need help? https://discord.link/Snapify
+  &@@@@(                          @@@@@
+       @@@@@@@             #@@@@@@@
+               @@@#@@(##@@(
 
+""")
     print(
-        'Select module:\n\n\n\n1) Add Friends\n\n2) Boost\n\n\n ')
+        'Select module:\n\n\n\n1) Add Friends\n\n2) Boost\n\n3) Remove Recently Added Friends\n\n\n ')
     print(Fore.CYAN + 'Snapify> ', end='')
     option = input(Fore.WHITE + '')
 
     if option == '1':
-        clear()
-        add()
+        while True:
+            clear()
+            print(Style.BRIGHT + Fore.LIGHTRED_EX +
+                  "If you know how to use this type 'yes' if you don't type 'no'\n\n")
+            print(Fore.CYAN + 'Snapify> ', end='')
+            watchvid = input(Fore.WHITE + '').lower()
+            if watchvid == 'yes':
+                clear()
+                add()
+            elif watchvid == 'no':
+                clear()
+                webbrowser.open_new('https://youtu.be/vp_jK4tBMVI')
+                add()
+            else:
+                getpass(Style.BRIGHT + Fore.LIGHTRED_EX +
+                        'Error. You inserted an invalid option. Please try again.')
+                clear()
+                continue
     elif option == '2':
         while True:
             clear()
@@ -232,6 +317,25 @@ while True:
                 clear()
                 webbrowser.open_new('https://youtu.be/vp_jK4tBMVI')
                 sendsnap()
+            else:
+                getpass(Style.BRIGHT + Fore.LIGHTRED_EX +
+                        'Error. You inserted an invalid option. Please try again.')
+                clear()
+                continue
+    elif option == '3':
+        while True:
+            clear()
+            print(Style.BRIGHT + Fore.LIGHTRED_EX +
+                  "If you know how to use this type 'yes' if you don't type 'no'\n\n")
+            print(Fore.CYAN + 'Snapify> ', end='')
+            watchvid = input(Fore.WHITE + '').lower()
+            if watchvid == 'yes':
+                clear()
+                removefriends()
+            elif watchvid == 'no':
+                clear()
+                webbrowser.open_new('https://youtu.be/vp_jK4tBMVI')
+                removefriends()
             else:
                 getpass(Style.BRIGHT + Fore.LIGHTRED_EX +
                         'Error. You inserted an invalid option. Please try again.')
