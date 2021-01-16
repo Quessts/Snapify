@@ -28,7 +28,7 @@ python3 main.py
 #### You will also need Vysor for Linux and Mac click [here](https://www.vysor.io/download/) to download it.
 # How to use
 #### Once you launch Snapify you should see this:
-![alt text](https://i.stack.imgur.com/ef82Z.png)
+![alt text](https://i.stack.imgur.com/9yMjH.png)
 
 #### If this is your first time running it select module one. This will add 200 people to your friends list. 
 #### To do this connect a cable to your android phone and make sure you have debugging mode enabled. Click [here](https://developer.android.com/studio/debug/dev-options) for more on how to enable debugging mode on android.
