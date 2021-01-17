@@ -10,7 +10,7 @@
 
 # Install
 
-#### For Windows click [here](https://github.com/Quessts/Snapify/releases/tag/Release)
+#### For Windows click [here](https://github.com/Quessts/Snapify/releases)
 
 #### For Linux and Mac download the zip file and then run the following commands in terminal:
 ```
