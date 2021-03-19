@@ -220,7 +220,8 @@ def sendsnap():
 
 
 def removefriends():
-    print(":: Head over to the recently added friends section then click enter when your mouse is over the first users 'icon' ::")
+    print(Style.BRIGHT + Fore.LIGHTRED_EX +
+          ":: Head over to the recently added friends section then click enter when your mouse is over the first users 'icon' ::")
     if keyboard.read_key() == "enter":
         IconButton = pag.position()
         print(f"Cords captured: {IconButton}")
@@ -235,6 +236,11 @@ def removefriends():
         RemoveFriendButton = pag.position()
         print(f"Cords captured: {RemoveFriendButton}")
     time.sleep(1)
+    print(":: Click on the 'remove friend' button then click enter when your mouse is over the 'confirm remove friend' button ::")
+    if keyboard.read_key() == "enter":
+        ConfirmRemoveFriendButton = pag.position()
+        print(f"Cords captured: {ConfirmRemoveFriendButton}")
+    time.sleep(1)
     clear()
     # countdown screen
     TimeToRecentlyAddedPage = 15
@@ -244,6 +250,8 @@ def removefriends():
             f'You have {TimeToRecentlyAddedPage} seconds to go back to the snapchat recently added menu before the bot starts.')
         time.sleep(1)
         TimeToRecentlyAddedPage -= 1
+    clear()
+    print('Started removing friends! This proccess will contniue forever and has to be stopped manually.')
     while True:
         # move to icon button and click
         pag.moveTo(IconButton[0], IconButton[1], 2)
@@ -257,10 +265,15 @@ def removefriends():
         pag.moveTo(RemoveFriendButton[0], RemoveFriendButton[1], 2)
         pag.click()
 
+        # move to confirm remove friend button and click
+        pag.moveTo(ConfirmRemoveFriendButton[0],
+                   ConfirmRemoveFriendButton[1], 2)
+        pag.click()
+        time.sleep(6)
+
 
 while True:
     print(Style.BRIGHT + Fore.LIGHTRED_EX + """
-
     %(                              #%
     %###                          ###%
     %%%%#####  @@@/@@@/@@@, #####%##%       ███████╗███╗   ██╗ █████╗ ██████╗ ██╗███████╗██╗   ██╗
@@ -277,7 +290,6 @@ while True:
   &@@@@(                          @@@@@
        @@@@@@@             #@@@@@@@
                @@@#@@(##@@(
-
 """)
     print(
         'Select module:\n\n\n\n1) Add Friends\n\n2) Boost\n\n3) Remove Recently Added Friends\n\n\n ')
@@ -296,7 +308,7 @@ while True:
                 add()
             elif watchvid == 'no':
                 clear()
-                webbrowser.open_new('https://youtu.be/vp_jK4tBMVI')
+                webbrowser.open_new('https://youtu.be/uA4nNGV_jr8')
                 add()
             else:
                 getpass(Style.BRIGHT + Fore.LIGHTRED_EX +
@@ -315,7 +327,7 @@ while True:
                 sendsnap()
             elif watchvid == 'no':
                 clear()
-                webbrowser.open_new('https://youtu.be/vp_jK4tBMVI')
+                webbrowser.open_new('https://youtu.be/uA4nNGV_jr8')
                 sendsnap()
             else:
                 getpass(Style.BRIGHT + Fore.LIGHTRED_EX +
@@ -334,7 +346,7 @@ while True:
                 removefriends()
             elif watchvid == 'no':
                 clear()
-                webbrowser.open_new('https://youtu.be/vp_jK4tBMVI')
+                webbrowser.open_new('https://youtu.be/uA4nNGV_jr8')
                 removefriends()
             else:
                 getpass(Style.BRIGHT + Fore.LIGHTRED_EX +
