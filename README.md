@@ -6,7 +6,7 @@
 #### Click [here](http://discord.link/Snapify) to join our discord support server
 
 # Video Tutorial:
-#### Click [here](https://youtu.be/uA4nNGV_jr8)
+#### Click [here](https://youtu.be/11OZb15vHl0)
 
 # Install
 
