@@ -22,7 +22,7 @@ def clear():
 def add():
     try:
         namesFile = open("names.txt", "r")
-    except:
+    except OSError:
         print(Style.BRIGHT + Fore.LIGHTRED_EX +
               "Could not open names.txt - please make sure this file exists")
         exit()
